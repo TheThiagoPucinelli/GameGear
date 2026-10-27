@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fale com a GameGear, comparador de preços gamer: envie sugestões, dúvidas e avaliações, ou peça para sua loja ser parceira e anunciar ofertas.">
+    <meta name="author" content="Thiago Pucinelli">
+    <meta name="keywords" content="contato, feedback, parceria, anunciar loja, comparador de preços, GameGear">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <title>Contato | GameGear</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Game<span>Gear</span></a>
+
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pag2.html">Comparação</a></li>
+                <li><a href="pag4.html" class="ativo" aria-current="page">Contato</a></li>
+                <li><a href="pag3.html">Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contato-container">
+
+        <section class="contato-intro">
+            <h1>Entre em <span>contato</span></h1>
+            <p>
+                Envie sugestões, avaliações ou dúvidas sobre a GameGear.
+                É lojista e quer anunciar suas melhores ofertas no nosso
+                comparador de preços? Escolha "Parceria" no campo Assunto.
+            </p>
+        </section>
+
+        <section class="formulario-container">
+            <h2>Envie seu feedback</h2>
+            <p class="formulario-descricao">
+                Preencha os campos abaixo para compartilhar sua experiência.
+            </p>
+
+            <form action="#" method="post">
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        minlength="3"
+                        maxlength="100"
+                        autocomplete="name"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="exemplo@email.com"
+                        autocomplete="email"
+                        required>
+                </div>
+
+                <div class="campo">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="" disabled selected>
+                            Selecione um assunto
+                        </option>
+                        <option value="parceria">Parceria / Anunciar minha loja</option>
+                        <option value="sugestao">Sugestão</option>
+                        <option value="duvida">Dúvida</option>
+                        <option value="avaliacao">Avaliação do site</option>
+                        <option value="problema">Problema no site</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <fieldset class="campo grupo-radio">
+                    <legend>Como você avalia a GameGear?</legend>
+
+                    <label class="opcao">
+                        <input
+                            type="radio"
+                            name="avaliacao"
+                            value="otima"
+                            required>
+                        Ótima
+                    </label>
+
+                    <label class="opcao">
+                        <input
+                            type="radio"
+                            name="avaliacao"
+                            value="boa">
+                        Boa
+                    </label>
+
+                    <label class="opcao">
+                        <input
+                            type="radio"
+                            name="avaliacao"
+                            value="regular">
+                        Regular
+                    </label>
+
+                    <label class="opcao">
+                        <input
+                            type="radio"
+                            name="avaliacao"
+                            value="ruim">
+                        Ruim
+                    </label>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="mensagem">Sua mensagem</label>
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="5"
+                        minlength="10"
+                        maxlength="1000"
+                        placeholder="Escreva sua opinião, sugestão ou dúvida..."
+                        required></textarea>
+                </div>
+
+                <div class="campo grupo-checkbox">
+                    <label class="opcao">
+                        <input
+                            type="checkbox"
+                            id="autorizacao"
+                            name="autorizacao"
+                            value="sim"
+                            required>
+                        Confirmo que as informações preenchidas estão corretas.
+                    </label>
+                </div>
+
+                <div class="botoes-formulario">
+                    <button type="submit" class="botao-enviar">
+                        Enviar feedback
+                    </button>
+
+                    <button type="reset" class="botao-limpar">
+                        Limpar formulário
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer id="contato">
+        <a href="index.html" class="logo">Game<span>Gear</span></a>
+
+        <p>Comparador de preços de periféricos gamer. Quer anunciar sua loja? Fale com a gente na página de Contato.</p>
+
+        <p class="copyright">
+            &copy; 2026 GameGear. Todos os direitos reservados.
+        </p>
+    </footer>
+
+</body>
+</html>

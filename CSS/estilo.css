@@ -1,0 +1,1079 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #101116;
+    color: #ffffff;
+    min-width: 320px; /* min-width */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:root { /* Define cores padrão de layout do site */
+    --verde: #a3ff12;
+    --fundo: #101116;
+    --card: #1b1d24;
+    --texto: #b8bbc4;
+}
+
+/* MENU */
+
+/* ELEMENTO QUE ACOMPANHA O SCROLL DA PÁGINA:
+   O <header> usa position: sticky + top: 0, então fica fixo no topo
+   da tela enquanto a página rola. O z-index: 10 mantém o menu acima
+   dos demais elementos (cards, imagens, tabela). */
+header {
+    background-color: #101116;
+    border-bottom: 1px solid #2c2e35;
+    position: sticky; /* position */
+    top: 0; /* ELEMENTO QUE ACOMPANHA O SCROLL (header) */
+    z-index: 10; /* z-index */
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45); /* box-shadow */
+}
+
+.logo:hover {
+    opacity: 0.9;
+}
+
+/* Define propriedade pointer mantendo hover verde sempre ativo. */
+.menu a {
+    cursor: pointer;
+}
+
+.menu a:hover,
+.menu a.ativo {
+    color: #a3ff12;
+}
+
+.navbar {
+    max-width: 75em; /* max-width + em */
+    width: 100%; /* % */
+    margin: auto;
+    padding: 1.25em; /* em */
+    display: flex; /* display */
+    align-items: center; /* align-items */
+    justify-content: space-between; /* justify-content */
+}
+
+.logo {
+    font-size: 1.75em;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 0 0 10px rgba(163, 255, 18, 0.35); /* text-shadow */
+}
+
+.logo span {
+    color: var(--verde);
+}
+
+.menu {
+    display: flex; /* display */
+    align-items: center; /* align-items */
+    gap: 1.9em; /* em */
+    list-style: none;
+}
+
+.menu a {
+    color: var(--texto);
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: var(--verde);
+}
+
+/* Seletor de 4 níveis (header > .navbar > .menu > a):
+   ao passar o mouse num link do menu, ele fica verde, com brilho e sublinhado. */
+header .navbar .menu a:hover {
+    color: var(--verde);
+    text-shadow: 0 0 8px rgba(163, 255, 18, 0.6); /* text-shadow */
+    border-bottom: 2px solid var(--verde);
+    padding-bottom: 0.2em;
+}
+
+/* 2º seletor de 4 níveis: ao passar o mouse no botão do card, ele brilha e sobe. */
+.produtos .lista-produtos .produto .botao-produto:hover {
+    box-shadow: 0 0 14px rgba(163, 255, 18, 0.55); /* box-shadow */
+    transform: translateY(-2px);
+}
+
+
+/* SEÇÃO PRINCIPAL */
+.hero {
+    max-width: 75em; /* max-width */
+    min-height: 32.5em;
+    margin: auto;
+    padding: 4.4em 1.25em;
+    display: flex; /* display */
+    align-items: center; /* align-items */
+    justify-content: space-between; /* justify-content */
+    gap: 3.1em;
+}
+
+.hero-texto {
+    flex: 1;
+    min-width: 15em; /* min-width */
+}
+
+.subtitulo {
+    color: var(--verde);
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 1.6em;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.1;
+    margin-bottom: 0.4em;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--verde);
+    text-shadow: 0 0 18px rgba(163, 255, 18, 0.35);
+}
+
+.descricao {
+    color: var(--texto);
+    line-height: 1.8;
+    max-width: 27.5em;
+    margin-bottom: 1.9em;
+}
+
+.botao {
+    display: inline-block;
+    background-color: var(--verde);
+    color: #101116;
+    padding: 0.95em 1.6em;
+    border-radius: 6px; /* border-radius */
+    font-weight: bold;
+    transition: 0.3s;
+    min-width: 8em; /* min-width */
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(163, 255, 18, 0.25); /* box-shadow */
+}
+
+.botao:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.hero-imagem {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-imagem img {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #373b43;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* PRODUTOS */
+.produtos {
+    max-width: 75em; /* max-width */
+    margin: auto;
+    padding: 3.75em 1.25em 5.6em;
+}
+
+.secao-titulo {
+    margin-bottom: 2.2em;
+}
+
+.secao-titulo h2 {
+    font-size: 2em;
+    text-shadow: 0 0 12px rgba(163, 255, 18, 0.2);
+}
+
+.lista-produtos {
+    display: grid; /* display */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6em;
+}
+
+.produto {
+    background-color: var(--card);
+    border: 1px solid #30323a;
+    padding: 1.1em;
+    border-radius: 10px; /* border-radius */
+    transition: 0.3s;
+    min-width: 0; /* min-width */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); /* box-shadow */
+}
+
+.produto:hover {
+    transform: translateY(-7px);
+    border-color: var(--verde);
+    box-shadow: 0 12px 28px rgba(163, 255, 18, 0.15);
+}
+
+.produto-imagem {
+    overflow: hidden; /* overflow */
+    border-radius: 7px;
+    margin-bottom: 1.25em;
+    background-color: #eceff3; /* fundo claro: os PNGs dos produtos são transparentes */
+}
+
+.produto-imagem img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: contain; /* mostra o produto inteiro */
+    padding: 0.6em;
+    transition: 0.4s;
+}
+
+/* Fotos (controle e microfone) preenchem todo o espaço */
+.produto-imagem.foto img {
+    object-fit: cover;
+    padding: 0;
+}
+
+.produto:hover img {
+    transform: scale(1.30);
+}
+
+.produto h3 {
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+}
+
+.produto p {
+    color: var(--texto);
+    font-size: 0.875em;
+    margin-bottom: 1.4em;
+}
+
+.preco {
+    display: block;
+    color: var(--verde);
+    font-size: 1.45em;
+    font-weight: bold;
+    margin-bottom: 0.85em;
+    text-shadow: 0 0 8px rgba(163, 255, 18, 0.3);
+}
+
+.botao-produto {
+    display: block;
+    text-align: center;
+    padding: 0.85em;
+    border: 1px solid var(--verde);
+    border-radius: 5px;
+    color: var(--verde);
+    transition: 0.3s;
+}
+
+.botao-produto:hover {
+    background-color: var(--verde);
+    color: #101116;
+}
+
+/* BANNER */
+.banner {
+    max-width: 75em;
+    margin: 0 auto 5em;
+    padding: 3.75em 1.25em;
+    background: linear-gradient(135deg, #20251a, #191a20);
+    border: 1px solid #343a2a;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.banner p {
+    color: var(--verde);
+    letter-spacing: 3px;
+    font-size: 0.75em;
+    margin-bottom: 1.25em;
+}
+
+.banner h2 {
+    font-size: clamp(24px, 4vw, 38px);
+    margin-bottom: 0.65em;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+/* OFERTAS ESPECIAIS */
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    max-width: 72.5em;
+    margin: 1.25em auto 3.75em;
+    padding: 3.1em 1.6em;
+
+    background: linear-gradient(135deg, #1b1d24, #13151b);
+    border: 1px solid #30323a;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Título da área de ofertas */
+.informacoes h2 {
+    font-size: 1.9em;
+    margin-bottom: 0.6em;
+    text-shadow: 0 0 12px rgba(163, 255, 18, 0.2);
+}
+
+/* Texto de apresentação */
+.informacoes-descricao {
+    max-width: 650px;
+    color: var(--texto);
+    font-size: 0.95em;
+    line-height: 1.8;
+    margin-bottom: 1.6em;
+}
+
+/* Lista de benefícios */
+.lista-beneficios {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85em;
+    margin-bottom: 2em;
+}
+
+/* Cada benefício */
+.lista-beneficios li {
+    color: var(--verde);
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Efeito ao passar o mouse no botão */
+.informacoes .botao {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.informacoes .botao:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 550px) {
+    .informacoes {
+        margin: 1.25em 1em 2.5em;
+        padding: 2.2em 1.25em;
+    }
+
+    .informacoes h2 {
+        font-size: 1.6em;
+    }
+
+    .informacoes-descricao {
+        font-size: 0.9em;
+    }
+}
+
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 2.5em 1.25em;
+    border-top: 1px solid #30323a;
+}
+
+footer p {
+    color: var(--texto);
+    margin-top: 1em;
+}
+
+footer .copyright {
+    color: var(--texto);
+    font-size: 0.75em;
+    margin-top: 2.5em;
+}
+
+/* RODAPÉ: contato e links úteis */
+footer .footer-contato,
+footer .footer-links {
+    margin-top: 1.6em;
+}
+
+footer h3 {
+    color: var(--verde);
+    font-size: 1em;
+    margin-bottom: 0.6em;
+}
+
+footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em 1.5em;
+}
+
+footer .footer-links h3 {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+footer .footer-contato a,
+footer .footer-links a {
+    color: var(--texto);
+    transition: 0.3s;
+}
+
+footer .footer-contato a:hover,
+footer .footer-links a:hover {
+    color: var(--verde);
+}
+
+/* Categoria do produto (card) */
+.produto .produto-categoria {
+    color: var(--verde);
+    font-size: 0.7em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 0.6em;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar {
+        gap: 1.25em;
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        gap: 1em;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 2.8em;
+        gap: 2.2em;
+    }
+
+    .hero-imagem img {
+        height: 280px;
+    }
+
+    .lista-produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1em;
+    }
+
+    .produto-imagem img {
+        height: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        justify-content: center;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        gap: 1.4em;
+    }
+
+    .lista-produtos {
+        grid-template-columns: 1fr;
+    }
+
+    .produto-imagem img {
+        height: 240px;
+    }
+
+    .secao-titulo h2 {
+        font-size: 1.7em;
+    }
+}
+
+
+/* ---------------- Comparação ---------------- */
+
+/* PÁGINA DE COMPARAÇÃO */
+.pagina-tabela {
+    max-width: 75em;
+    margin: auto;
+    padding: 3.75em 1.25em 5em;
+}
+
+/* Apresentação da página */
+.introducao-tabela {
+    text-align: center;
+    margin-bottom: 2.5em;
+}
+
+.introducao-tabela h1 {
+    font-size: 2.25em;
+    margin-bottom: 0.4em;
+    text-shadow: 0 0 14px rgba(163, 255, 18, 0.25);
+}
+
+.introducao-tabela > p:last-child {
+    color: var(--texto);
+    line-height: 1.7;
+}
+
+/* Área externa da tabela */
+.secao-tabela {
+    width: 100%;
+}
+
+.tabela-container {
+    overflow-x: auto; /* overflow */
+    border: 1px solid #30323a;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Estrutura da tabela */
+.tabela-produtos {
+    width: 100%;
+    min-width: 37.5em;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: var(--card);
+}
+
+/* Legenda */
+.tabela-produtos caption {
+    padding: 1.1em;
+    color: var(--verde);
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Cabeçalho */
+.tabela-produtos thead {
+    background-color: var(--verde);
+    color: #101116;
+}
+
+.tabela-produtos th,
+.tabela-produtos td {
+    padding: 1.1em 1em;
+    border: 1px solid #30323a;
+}
+
+/* Cabeçalhos das colunas */
+.tabela-produtos thead th {
+    font-size: 0.875em;
+    font-weight: bold;
+}
+
+/* Células do corpo */
+.tabela-produtos tbody th {
+    color: var(--verde);
+    text-align: left;
+}
+
+.tabela-produtos tbody td {
+    color: var(--texto);
+    font-size: 0.875em;
+}
+
+/* Linhas alternadas */
+.tabela-produtos tbody tr:nth-child(even) {
+    background-color: #20232b;
+}
+
+/* Efeito ao passar o cursor */
+.tabela-produtos tbody tr:hover {
+    background-color: #343a2b;
+    transition: background-color 0.2s ease;
+}
+
+.tabela-produtos tbody tr:hover td,
+.tabela-produtos tbody tr:hover th {
+    color: var(--verde);
+}
+
+/* Rodapé da tabela */
+.tabela-produtos tfoot {
+    background-color: #15171d;
+}
+
+.tabela-produtos tfoot td {
+    color: var(--texto);
+    font-size: 0.8em;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Botão de retorno */
+.voltar-inicio {
+    text-align: center;
+    margin-top: 2.2em;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 700px) {
+    .introducao-tabela h1 {
+        font-size: 1.75em;
+    }
+
+    .tabela-produtos th,
+    .tabela-produtos td {
+        padding: 0.75em;
+        white-space: nowrap;
+    }
+
+    .tabela-produtos caption {
+        font-size: 1em;
+    }
+}
+
+
+/* ------------------------- SOBRE ------------------*/
+
+.sobre-container {
+    max-width: 68.75em;
+    min-width: 280px;
+    width: 90%; /* % */
+    margin: 4.4em auto;
+}
+
+/* Introdução */
+
+.sobre-intro {
+    text-align: center;
+    margin-bottom: 3.4em;
+}
+
+.sobre-intro h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0.7em;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.sobre-intro h1 span {
+    color: #39ff14;
+    text-shadow: 0 0 16px rgba(57, 255, 20, 0.4);
+}
+
+.sobre-intro p {
+    max-width: 45em;
+    margin: 0 auto;
+    color: #b8b8b8;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Título da lista */
+
+.titulo-lista {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0.7em;
+}
+
+.descricao-lista {
+    color: #a5abb4;
+    line-height: 1.7;
+    margin-bottom: 1.75em;
+}
+
+/* Lista de periféricos */
+
+.lista-perifericos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25em;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-perifericos li {
+    display: flex;
+    align-items: center;
+    gap: 1.1em;
+    min-height: 7.2em;
+    padding: 1.5em;
+    background: linear-gradient(145deg, #191e25, #12161b);
+    border: 1px solid #2b323c;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Imagem usada como marcador */
+
+.lista-perifericos li::before {
+    content: "";
+    display: block;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    background-image: url("../imagens/icone.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Efeito ao passar o cursor */
+
+.lista-perifericos li:hover {
+    transform: translateY(-5px);
+    border-color: #39ff14;
+    background: linear-gradient(145deg, #202a22, #151b17);
+    box-shadow: 0 10px 28px rgba(57, 255, 20, 0.08);
+}
+
+/* Conteúdo dos cards */
+
+.texto-periferico {
+    min-width: 0;
+}
+
+.texto-periferico h3 {
+    color: #f2f4f7;
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin: 0 0 0.5em;
+    transition: color 0.25s ease;
+}
+
+.lista-perifericos li:hover .texto-periferico h3 {
+    color: #39ff14;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.35);
+}
+
+.texto-periferico p {
+    color: #a5abb4;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Acessibilidade: reduz animações */
+
+@media (prefers-reduced-motion: reduce) {
+    .lista-perifericos li,
+    .texto-periferico h3 {
+        transition: none;
+    }
+
+    .lista-perifericos li:hover {
+        transform: none;
+    }
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .sobre-container {
+        margin: 3.1em auto;
+    }
+
+    .sobre-intro {
+        margin-bottom: 2.5em;
+    }
+
+    .lista-perifericos {
+        gap: 1em;
+    }
+
+    .lista-perifericos li {
+        padding: 1.25em;
+        gap: 0.9em;
+    }
+}
+
+@media (max-width: 600px) {
+    .sobre-container {
+        width: 92%;
+        margin: 2.5em auto;
+    }
+
+    .sobre-intro h1 {
+        letter-spacing: -0.5px;
+    }
+
+    .sobre-intro p {
+        font-size: 0.98rem;
+    }
+
+    .titulo-lista {
+        font-size: 1.4rem;
+    }
+
+    .lista-perifericos {
+        grid-template-columns: 1fr;
+        gap: 0.9em;
+    }
+
+    .lista-perifericos li {
+        min-height: 6.2em;
+        padding: 1.1em;
+    }
+
+    .lista-perifericos li::before {
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/*------------------------- Contato ------------------ */
+
+.contato-container {
+    width: 90%;
+    max-width: 53em;
+    min-width: 280px;
+    margin: 3.75em auto;
+}
+
+/* Introdução */
+
+.contato-intro {
+    text-align: center;
+    margin-bottom: 2.5em;
+}
+
+.contato-intro h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.contato-intro h1 span {
+    color: #39ff14;
+    text-shadow: 0 0 16px rgba(57, 255, 20, 0.4);
+}
+
+.contato-intro p {
+    color: #b8b8b8;
+    line-height: 1.8;
+}
+
+/* Caixa do formulário */
+
+.formulario-container {
+    background-color: #15191e;
+    border: 1px solid #303640;
+    border-radius: 16px;
+    padding: 2.2em;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.formulario-container h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4em;
+}
+
+.formulario-descricao {
+    color: #a5abb4;
+    margin-bottom: 1.9em;
+    line-height: 1.6;
+}
+
+/* Campos */
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    margin-bottom: 1.45em;
+    min-width: 0;
+}
+
+.campo > label,
+.campo legend {
+    color: #f2f4f7;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.85em 1em;
+    background-color: #0f1216;
+    color: #f2f4f7;
+    border: 1px solid #343b46;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+/* Texto de orientação */
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #7f8792;
+}
+
+/* Destaque ao selecionar um campo */
+
+.campo input[type="text"]:focus,
+.campo input[type="email"]:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #39ff14;
+    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.10);
+}
+
+/* Área de mensagem */
+
+.campo textarea {
+    resize: vertical;
+    min-height: 8em;
+    line-height: 1.6;
+}
+
+/* Opções de avaliação */
+
+.grupo-radio {
+    border: 1px solid #343b46;
+    border-radius: 10px;
+    padding: 1.1em;
+}
+
+.grupo-radio legend {
+    padding: 0 0.5em;
+}
+
+.opcao {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.65em;
+    color: #c4c9d1;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.grupo-radio .opcao {
+    margin-top: 0.5em;
+}
+
+.opcao input {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: #39ff14;
+    cursor: pointer;
+}
+
+/* Checkbox */
+
+.grupo-checkbox {
+    margin-top: 0.3em;
+}
+
+.grupo-checkbox .opcao {
+    align-items: flex-start;
+}
+
+/* Botões */
+
+.botoes-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9em;
+    margin-top: 1.9em;
+}
+
+.botoes-formulario button {
+    padding: 0.85em 1.4em;
+    min-width: 8em;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.botao-enviar {
+    background-color: #39ff14;
+    color: #101410;
+    border: 1px solid #39ff14;
+    box-shadow: 0 4px 14px rgba(57, 255, 20, 0.25);
+}
+
+.botao-enviar:hover {
+    background-color: #2cdb0c;
+    border-color: #2cdb0c;
+    transform: translateY(-2px);
+}
+
+.botao-limpar {
+    background-color: transparent;
+    color: #e0e4e9;
+    border: 1px solid #454d59;
+}
+
+.botao-limpar:hover {
+    background-color: #252b33;
+    border-color: #707987;
+}
+
+/* Acessibilidade por teclado */
+
+.botoes-formulario button:focus-visible,
+.opcao input:focus-visible {
+    outline: 2px solid #39ff14;
+    outline-offset: 3px;
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+    .contato-container {
+        width: 92%;
+        margin: 2.5em auto;
+    }
+
+    .formulario-container {
+        padding: 1.4em 1.1em;
+    }
+
+    .botoes-formulario {
+        flex-direction: column;
+    }
+
+    .botoes-formulario button {
+        width: 100%;
+    }
+}
