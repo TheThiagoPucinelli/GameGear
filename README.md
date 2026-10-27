@@ -1,4 +1,8 @@
 # GameGear — Landing Page Gamer
+<img width="187" height="80" alt="image" src="https://github.com/user-attachments/assets/8cb2ff99-58d5-4211-af42-0fbbfe565908" /> 
+<img width="1448" height="760" alt="image" src="https://github.com/user-attachments/assets/71823b67-f321-4125-b3aa-40b141510c3c" />
+
+
 
 ## Sobre o projeto
 
